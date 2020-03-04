@@ -1,0 +1,201 @@
+{
+  "knowledges": [
+    {
+      "key": "iteration-and-permutation:arcana",
+      "icon": "TODO (do i even want this)",
+      "name": "Arcana"
+    }
+  ],
+  "categories": [
+    {
+      "key": "iteration-and-permutation:cat_basics",
+      "in": "iteration-and-permutation:arcana",
+      "icon": "iteration-and-permutation:item/unnamed_book.png",
+      "background": "iteration-and-permutation:gui/nebula_bg.png",
+      "name": "Basics"
+    },
+    {
+      "key": "iteration-and-permutation:cat_planes",
+      "in": "iteration-and-permutation:arcana",
+      "icon": "iteration-and-permutation:item/book_of_planes.png",
+      "name": "Planes"
+    },
+    {
+      "key": "iteration-and-permutation:cat_loot",
+      "in": "iteration-and-permutation:arcana",
+      "icon": "iteration-and-permutation:research/large_icon.png",
+      "name": "Fancy Fancy"
+    }
+  ],
+  "entries": [
+    {
+      "key": "iteration-and-permutation:root",
+      "name": "Root Entry",
+      "icons": ["minecraft:book"],
+      "category": "iteration-and-permutation:cat_basics",
+      "parents": [],
+      "meta": ["base_star"],
+      "x": 0,
+      "y": 0,
+      "sections": [
+        {
+          "type": "string",
+          "content": "Wow, so this is knowledge!",
+          "requirements": ["10*iteration-and-permutation::xp", "3*minecraft:tropical_fish"]
+        },
+        {
+          "type": "string",
+          "content": "And this is it, completed."
+        }
+      ]
+    },
+    {
+      "key": "iteration-and-permutation:magic_root",
+      "name": "Here be Magic",
+      "icons": ["iteration-and-permutation:unnamed_book"],
+      "category": "iteration-and-permutation:cat_basics",
+      "parents": ["iteration-and-permutation:root"],
+      "x": 1,
+      "y": 2,
+      "sections": [
+        {
+          "type": "string",
+          "content": "It's time to do some magic!",
+          "requirements": ["10*iteration-and-permutation::xp", "iteration-and-permutation:unnamed_book"]
+        },
+        {
+          "type": "string",
+          "content": "*glasses fall*"
+        }
+      ]
+    },
+    {
+      "key": "iteration-and-permutation:fish_root",
+      "name": "Fishy Fishy",
+      "icons": ["minecraft:fishing_rod"],
+      "category": "iteration-and-permutation:cat_basics",
+      "parents": ["iteration-and-permutation:root"],
+      "x": -1,
+      "y": 2,
+      "sections": [
+        {
+          "type": "string",
+          "content": "Look at the bottom of the ocean... what do you see? Fish? Yep, fish. Good. \nVery\nGood.",
+          "requirements": ["minecraft:fishing_rod"]
+        },
+        {
+          "type": "string",
+          "content": "fish. glub glub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub."
+        }
+      ]
+    },
+    {
+      "key": "iteration-and-permutation:back_together",
+      "name": "Back Together",
+      "icons": ["minecraft:gold_ingot", "minecraft:iron_ingot"],
+      "category": "iteration-and-permutation:cat_basics",
+      "parents": ["iteration-and-permutation:magic_root", "iteration-and-permutation:fish_root"],
+      "meta": ["base_spiky"],
+      "x": 0,
+      "y": 4,
+      "sections": [
+        {
+          "type": "string",
+          "content": "done.",
+          "requirements": ["minecraft:diamond", "255*minecraft:snowball"]
+        },
+        {
+          "type": "string",
+          "content": "stop. please."
+        }
+      ]
+    },
+    {
+      "key": "iteration-and-permutation:extension_1",
+      "name": "Extension A",
+      "icons": ["minecraft:nether_brick", "minecraft:glowstone_dust", "minecraft:flint"],
+      "category": "iteration-and-permutation:cat_basics",
+      "parents": ["iteration-and-permutation:back_together"],
+      "meta": ["base_round"],
+      "x": 1,
+      "y": 5,
+      "sections": [
+        {
+          "type": "string",
+          "content": "You've made it much further than you should have. It may be wise to stop here.",
+          "requirements": ["3*minecraft:nether_brick", "5*minecraft:glowstone_dust", "7*minecraft:flint"]
+        },
+        {
+          "type": "string",
+          "content": "No? okie."
+        }
+      ]
+    },
+    {
+      "key": "iteration-and-permutation:extension_2",
+      "name": "Extension B",
+      "icons": ["minecraft:painting"],
+      "category": "iteration-and-permutation:cat_basics",
+      "parents": ["iteration-and-permutation:magic_root"],
+      "meta": ["base_round"],
+      "x": 3,
+      "y": 4,
+      "sections": [
+        {
+          "type": "string",
+          "content": "Art is an essential component to proper usage of magic.",
+          "requirements": ["2*minecraft:painting", "10*iteration-and-permutation::xp"]
+        },
+        {
+          "type": "string",
+          "content": "Paint to your hearts content."
+        }
+      ]
+    },
+    {
+      "key": "iteration-and-permutation:overworld_info",
+      "name": "The Overworld",
+      "icons": ["minecraft:grass_block"],
+      "category": "iteration-and-permutation:cat_planes",
+      "meta": ["base_thin"],
+      "x": 0,
+      "y": 0,
+      "sections": [
+        {
+          "type": "string",
+          "content": "Where do you think you are?"
+        }
+      ]
+    },
+    {
+      "key": "iteration-and-permutation:nether_info",
+      "name": "The Nether",
+      "icons": ["minecraft:netherrack"],
+      "category": "iteration-and-permutation:cat_planes",
+      "meta": ["base_thin"],
+      "x": -1,
+      "y": 0,
+      "sections": [
+        {
+          "type": "string",
+          "content": "Hell, basically."
+        }
+      ]
+    },
+    {
+      "key": "iteration-and-permutation:end_info",
+      "name": "The End",
+      "icons": ["minecraft:end_stone"],
+      "category": "iteration-and-permutation:cat_planes",
+      "meta": ["base_thin"],
+      "x": 1,
+      "y": 0,
+      "sections": [
+        {
+          "type": "string",
+          "content": "Fly away!"
+        }
+      ]
+    }
+  ]
+}
