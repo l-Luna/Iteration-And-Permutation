@@ -19,12 +19,6 @@
       "in": "iteration-and-permutation:arcana",
       "icon": "iteration-and-permutation:item/book_of_planes.png",
       "name": "Planes"
-    },
-    {
-      "key": "iteration-and-permutation:cat_loot",
-      "in": "iteration-and-permutation:arcana",
-      "icon": "iteration-and-permutation:research/large_icon.png",
-      "name": "Fancy Fancy"
     }
   ],
   "entries": [
@@ -157,7 +151,7 @@
       "name": "The Overworld",
       "icons": ["minecraft:grass_block"],
       "category": "iteration-and-permutation:cat_planes",
-      "meta": ["base_thin"],
+      "meta": ["base_thin", "hidden"],
       "x": 0,
       "y": 0,
       "sections": [
@@ -172,7 +166,7 @@
       "name": "The Nether",
       "icons": ["minecraft:netherrack"],
       "category": "iteration-and-permutation:cat_planes",
-      "meta": ["base_thin"],
+      "meta": ["base_thin", "hidden"],
       "x": -1,
       "y": 0,
       "sections": [
@@ -187,7 +181,7 @@
       "name": "The End",
       "icons": ["minecraft:end_stone"],
       "category": "iteration-and-permutation:cat_planes",
-      "meta": ["base_thin"],
+      "meta": ["base_thin", "hidden"],
       "x": 1,
       "y": 0,
       "sections": [

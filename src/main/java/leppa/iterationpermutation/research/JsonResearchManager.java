@@ -4,13 +4,14 @@ import com.google.gson.*;
 import leppa.iterationpermutation.PermutationNetwork;
 import leppa.iterationpermutation.commands.ResearchCommand;
 import leppa.iterationpermutation.network.PktSyncResearch;
+import leppa.iterationpermutation.research.impl.EmptySection;
+import leppa.iterationpermutation.research.impl.ImageSection;
+import leppa.iterationpermutation.research.impl.StringSection;
 import net.minecraft.client.resources.JsonReloadListener;
 import net.minecraft.profiler.IProfiler;
 import net.minecraft.resources.IResourceManager;
 import net.minecraft.util.JSONUtils;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fml.common.thread.EffectiveSide;
-import net.minecraftforge.fml.loading.FMLEnvironment;
 import net.minecraftforge.fml.network.PacketDistributor;
 
 import java.util.Map;
@@ -91,8 +92,10 @@ public final class JsonResearchManager extends JsonReloadListener{
 									.map(Knowledges::pageForId)
 									.filter(Optional::isPresent)
 									.map(Optional::get).collect(Collectors.toList()),
-							stream(getJsonArray(object, "sections"))
-									.map(JsonResearchManager::fromJson).collect(Collectors.toList()),
+							Stream.concat(
+										isHidden(object) ? Stream.of(new EmptySection()) : Stream.of(),
+										stream(getJsonArray(object, "sections")).map(JsonResearchManager::fromJson))
+									.collect(Collectors.toList()),
 							getInt(object, "x"),
 							getInt(object, "y"),
 							Knowledges.treeForId(getString(object, "category")).orElse(null)
@@ -101,6 +104,10 @@ public final class JsonResearchManager extends JsonReloadListener{
 				}
 			});
 		}
+	}
+	
+	static boolean isHidden(JsonObject object){
+		return stream(getJsonArray(object, "parents")).map(JsonElement::getAsString).anyMatch("hidden"::equals);
 	}
 	
 	static JsonArray getJsonArray(JsonObject object, String id){
@@ -117,9 +124,14 @@ public final class JsonResearchManager extends JsonReloadListener{
 			JsonObject object = item.getAsJsonObject();
 			PageSection section = new StringSection("");
 			
-			if(getString(object, "type").equalsIgnoreCase("string")){
+			String type = getString(object, "type");
+			if("string".equals(type))
 				section = new StringSection(getString(object, "content"));
-			} // TODO: switch for other section types; perhaps allow registry of custom?
+			else if("empty".equals(type))
+				section = new EmptySection();
+			else if("image".equals(type))
+				section = new ImageSection(new ResourceLocation(getString(object, "content")));
+			// TODO: switch for other section types; perhaps allow registry of custom?
 			
 			if(object.has("requirements"))
 				for(JsonElement requirement : getJsonArray(object, "requirements"))

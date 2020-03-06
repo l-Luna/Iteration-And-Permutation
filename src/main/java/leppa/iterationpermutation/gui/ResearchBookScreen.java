@@ -73,11 +73,11 @@ public class ResearchBookScreen extends Screen{
 		// pages and arrows
 		renderKnowledge();
 		renderKnowledgeArrows();
-		// tooltips
-		renderKnowledgeTooltip(mouseX, mouseY);
 		// tabs are just buttons
 		// frame
 		renderFrame();
+		// tooltips
+		renderKnowledgeTooltip(mouseX, mouseY);
 		// tabs sfx??
 		super.render(mouseX, mouseY, mouseZQ);
 	}
@@ -356,9 +356,10 @@ public class ResearchBookScreen extends Screen{
 		// TODO: addenda
 		if(Researcher.getFrom(player).stage(page) > 0)
 			return RenderStyle.In_Progress;
-		if(page.parents().size() == 0 && !page.meta().contains("hidden"))
-			return RenderStyle.In_Progress;
-		if(page.parents().stream().map(this::pageStyle).allMatch(RenderStyle.Complete::equals))
+		if(page.parents().size() == 0){
+			if(!page.meta().contains("hidden"))
+				return RenderStyle.In_Progress;
+		}else if(page.parents().stream().map(this::pageStyle).allMatch(RenderStyle.Complete::equals))
 			return RenderStyle.In_Progress;
 		if(page.parents().stream().map(this::pageStyle).anyMatch(RenderStyle.In_Progress::equals))
 			return RenderStyle.Pending;
