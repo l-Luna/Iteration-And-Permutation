@@ -356,6 +356,8 @@ public class ResearchBookScreen extends Screen{
 		// TODO: addenda
 		if(Researcher.getFrom(player).stage(page) > 0)
 			return RenderStyle.In_Progress;
+		if(page.parents().size() == 0 && !page.meta().contains("hidden"))
+			return RenderStyle.In_Progress;
 		if(page.parents().stream().map(this::pageStyle).allMatch(RenderStyle.Complete::equals))
 			return RenderStyle.In_Progress;
 		if(page.parents().stream().map(this::pageStyle).anyMatch(RenderStyle.In_Progress::equals))
