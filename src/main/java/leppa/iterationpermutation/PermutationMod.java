@@ -48,7 +48,7 @@ public class PermutationMod{
 	}
 	
 	private void setupClient(FMLClientSetupEvent event){
-		proxy.setupClient();
+		//proxy.setupClient();
 	}
 	
 	private void setupServer(FMLServerAboutToStartEvent event){

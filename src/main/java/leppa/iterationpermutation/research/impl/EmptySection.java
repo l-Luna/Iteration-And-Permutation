@@ -20,7 +20,7 @@ public class EmptySection implements PageSection{
 		return 0;
 	}
 	
-	public void render(boolean right, int pageIndex, int screenWidth, int screenHeight){}
+	public void render(boolean right, int pageIndex, int screenWidth, int screenHeight, int mouseX, int mouseY){}
 	
 	public void addRequirement(Requirement requirement){
 		requirements.add(requirement);

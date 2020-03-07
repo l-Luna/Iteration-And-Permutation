@@ -3,7 +3,6 @@ package leppa.iterationpermutation.research;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.nbt.INBT;
 
 import java.util.HashMap;
 import java.util.List;
@@ -16,7 +15,8 @@ public interface PageSection{
 	Map<String, Function<CompoundNBT, PageSection>> deserializers = new HashMap<>();
 	
 	int span();
-	void render(boolean right, int pageIndex, int screenWidth, int screenHeight);
+	void render(boolean right, int pageIndex, int screenWidth, int screenHeight, int mouseX, int mouseY);
+	default void renderAfter(boolean right, int pageIndex, int screenWidth, int screenHeight, int mouseX, int mouseY){};
 	void addRequirement(Requirement requirement);
 	List<Requirement> getRequirements();
 	

@@ -7,6 +7,7 @@ import leppa.iterationpermutation.network.PktSyncResearch;
 import leppa.iterationpermutation.research.impl.EmptySection;
 import leppa.iterationpermutation.research.impl.ImageSection;
 import leppa.iterationpermutation.research.impl.StringSection;
+import leppa.iterationpermutation.research.impl.VanillaCraftingSection;
 import net.minecraft.client.resources.JsonReloadListener;
 import net.minecraft.profiler.IProfiler;
 import net.minecraft.resources.IResourceManager;
@@ -131,6 +132,9 @@ public final class JsonResearchManager extends JsonReloadListener{
 				section = new EmptySection();
 			else if("image".equals(type))
 				section = new ImageSection(new ResourceLocation(getString(object, "content")));
+			else if("crafting".equals(type))
+				section = new VanillaCraftingSection(getString(object, "content"));
+			
 			// TODO: switch for other section types; perhaps allow registry of custom?
 			
 			if(object.has("requirements"))

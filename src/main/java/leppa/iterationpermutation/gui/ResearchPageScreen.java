@@ -67,7 +67,7 @@ public class ResearchPageScreen extends Screen{
 	}
 	
 	public void right(){
-		if(index < Math.ceil(getTotalVisibleLength() / 2f) - 1)
+		if(index < getTotalVisibleLength() - 2)
 			index += 2;
 		
 		refreshButtonVisibility();
@@ -80,7 +80,7 @@ public class ResearchPageScreen extends Screen{
 	
 	private void refreshButtonVisibility(){
 		left.visible = index > 0;
-		right.visible = index < Math.ceil(getTotalVisibleLength() / 2f) - 1;
+		right.visible = index < getTotalVisibleLength() - 2;
 		complete.visible = researcher.stage(page) < page.sections().size() && page.sections().get(researcher.stage(page)).getRequirements().size() > 0;
 	}
 	
@@ -90,10 +90,15 @@ public class ResearchPageScreen extends Screen{
 		
 		PageSection left = getVisibleSectionAtIndex(index);
 		if(left != null)
-			left.render(false, sectionIndex(index), width, height);
+			left.render(false, sectionIndex(index), width, height, mouseX, mouseY);
 		PageSection right = getVisibleSectionAtIndex(index + 1);
 		if(right != null)
-			right.render(true, sectionIndex(index + 1), width, height);
+			right.render(true, sectionIndex(index + 1), width, height, mouseX, mouseY);
+		
+		if(left != null)
+			left.renderAfter(false, sectionIndex(index), width, height, mouseX, mouseY);
+		if(right != null)
+			right.renderAfter(true, sectionIndex(index + 1), width, height, mouseX, mouseY);
 		
 		// render current requirements
 		if(researcher.stage(page) < page.sections().size() && page.sections().get(researcher.stage(page)).getRequirements().size() > 0){
@@ -196,6 +201,7 @@ public class ResearchPageScreen extends Screen{
 		
 		public void renderButton(int p1, int p2, float p3){
 			GlStateManager.color4f(1.0f, 1.0f, 1.0f, 1.0f);
+			GlStateManager.disableLighting();
 			Minecraft.getInstance().getTextureManager().bindTexture(bg);
 			
 			int i = 0;
@@ -206,6 +212,8 @@ public class ResearchPageScreen extends Screen{
 			if(!right)
 				j += 13;
 			this.blit(this.x, this.y, i, j, 23, 13);
+			
+			GlStateManager.enableLighting();
 		}
 	}
 	

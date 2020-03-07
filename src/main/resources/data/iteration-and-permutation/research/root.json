@@ -44,6 +44,62 @@
       ]
     },
     {
+      "key": "iteration-and-permutation:craft_it_all",
+      "name": "Crafting Recipes (For Free!)",
+      "icons": ["minecraft:knowledge_book"],
+      "category": "iteration-and-permutation:cat_basics",
+      "meta": ["base_spiky"],
+      "x": -2,
+      "y": -2,
+      "sections": [
+        {
+          "type": "string",
+          "content": "Crafting recipes, go!"
+        },
+        {
+          "type": "crafting",
+          "content": "iteration-and-permutation:unnamed_book_crafting"
+        },
+        {
+          "type": "crafting",
+          "content": "minecraft:diamond_chestplate"
+        },
+        {
+          "type": "crafting",
+          "content": "minecraft:yellow_banner"
+        },
+        {
+          "type": "crafting",
+          "content": "minecraft:conduit"
+        },
+        {
+          "type": "crafting",
+          "content": "minecraft:daylight_detector"
+        },
+        {
+          "type": "crafting",
+          "content": "minecraft:daylight_detector"
+        },
+        {
+          "type": "crafting",
+          "content": "minecraft:brick"
+        },
+        {
+          "type": "crafting",
+          "content": "minecraft:cooked_mutton_from_smoking"
+        },
+        {
+          "type": "crafting",
+          "content": "minecraft:wheat",
+          "requirements": ["1*minecraft:knowledge_book"]
+        },
+        {
+          "type": "string",
+          "content": "And this is it, completed."
+        }
+      ]
+    },
+    {
       "key": "iteration-and-permutation:magic_root",
       "name": "Here be Magic",
       "icons": ["iteration-and-permutation:unnamed_book"],

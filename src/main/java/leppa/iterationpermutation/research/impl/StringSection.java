@@ -16,7 +16,7 @@ public class StringSection implements PageSection{
 	static int pageWidth = 100;
 	
 	static{
-		deserializers.put("StringSection", inbt -> new StringSection(inbt.getString("text")));
+		deserializers.put("StringSection", nbt -> new StringSection(nbt.getString("text")));
 	}
 	
 	String text;
@@ -30,7 +30,7 @@ public class StringSection implements PageSection{
 		return (int)Math.ceil(fr().listFormattedStringToWidth(text, pageWidth).size() / (double)linesPerPage);
 	}
 	
-	public void render(boolean right, int pageIndex, int screenWidth, int screenHeight){
+	public void render(boolean right, int pageIndex, int screenWidth, int screenHeight, int mouseX, int mouseY){
 		List<String> lines = fr().listFormattedStringToWidth(text, pageWidth);
 		lines = lines.subList(pageIndex * linesPerPage,
 							  Math.min((pageIndex + 1) * linesPerPage,

@@ -6,7 +6,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.AbstractGui;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fml.client.config.GuiUtils;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -38,7 +37,7 @@ public class ImageSection implements PageSection{
 		return 1;
 	}
 	
-	public void render(boolean right, int pageIndex, int screenWidth, int screenHeight){
+	public void render(boolean right, int pageIndex, int screenWidth, int screenHeight, int mouseX, int mouseY){
 		float x = (screenWidth / 2f - 128f) + (right ? 142 : 18);
 		float y = (screenHeight / 2f - 128f) + 20;
 		// 96 x 145 max
