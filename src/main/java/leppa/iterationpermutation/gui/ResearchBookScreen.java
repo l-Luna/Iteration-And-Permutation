@@ -455,6 +455,7 @@ public class ResearchBookScreen extends Screen{
 			}
 			if(isHovered() && name != null){
 				// render text
+				Minecraft.getInstance().fontRenderer.drawStringWithShadow(name, x - Minecraft.getInstance().fontRenderer.getStringWidth(name) - 10, y + 4, -1);
 			}
 		}
 	}

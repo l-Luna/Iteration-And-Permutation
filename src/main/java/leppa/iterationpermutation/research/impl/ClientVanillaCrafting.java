@@ -141,7 +141,7 @@ public final class ClientVanillaCrafting{
 			GuiUtils.drawHoveringText(getTooltipFromItem(recipe.getRecipeOutput()), mouseX, mouseY, screenWidth, screenHeight, -1, mc().fontRenderer);
 		}
 		// if mouse is over (47, 78) and (82, 101), its over the arrow
-		else if(mouseX >= x + 47 && mouseX <= 78 + x     &&     mouseY >= y + 82 && mouseY <= y + 101)
+		else if(mouseX >= x + 47 && mouseX <= 82 + x     &&     mouseY >= y + 78 && mouseY <= y + 101)
 			GuiUtils.drawHoveringText(Lists.newArrayList(I18n.format(recipe.getIcon().getTranslationKey())), mouseX, mouseY, screenWidth, screenHeight, -1, mc().fontRenderer);
 		RenderHelper.enableStandardItemLighting();
 	}

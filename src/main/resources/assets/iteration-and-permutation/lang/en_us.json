@@ -1,4 +1,7 @@
 {
   "item.iteration-and-permutation.unnamed_book": "Unnamed Book",
-  "itemGroup.iteration-and-permutation": "Iteration and Permutation"
+  "itemGroup.iteration-and-permutation": "Iteration and Permutation",
+
+  "researchTree.iteration-and-permutation.cat_basics": "Basics",
+  "researchTree.iteration-and-permutation.cat_planes": "Planes"
 }
