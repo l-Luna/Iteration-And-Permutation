@@ -12,19 +12,20 @@
       "in": "iteration-and-permutation:arcana",
       "icon": "iteration-and-permutation:item/unnamed_book.png",
       "background": "iteration-and-permutation:gui/nebula_bg.png",
-      "name": "Basics"
+      "name": "researchTree.iteration-and-permutation.cat_basics"
     },
     {
       "key": "iteration-and-permutation:cat_planes",
       "in": "iteration-and-permutation:arcana",
       "icon": "iteration-and-permutation:item/book_of_planes.png",
-      "name": "Planes"
+      "background": "iteration-and-permutation:gui/nebula_bg.png",
+      "name": "researchTree.iteration-and-permutation.cat_planes"
     }
   ],
   "entries": [
     {
       "key": "iteration-and-permutation:root",
-      "name": "Root Entry",
+      "name": "research.iteration-and-permutation.root",
       "icons": ["minecraft:book"],
       "category": "iteration-and-permutation:cat_basics",
       "parents": [],
@@ -34,18 +35,18 @@
       "sections": [
         {
           "type": "string",
-          "content": "Wow, so this is knowledge!",
+          "content": "research.iteration-and-permutation.root.stage.1",
           "requirements": ["10*iteration-and-permutation::xp", "3*minecraft:tropical_fish"]
         },
         {
           "type": "string",
-          "content": "And this is it, completed."
+          "content": "research.iteration-and-permutation.root.stage.2"
         }
       ]
     },
     {
       "key": "iteration-and-permutation:craft_it_all",
-      "name": "Crafting Recipes (For Free!)",
+      "name": "research.iteration-and-permutation.craft_it_all",
       "icons": ["minecraft:knowledge_book"],
       "category": "iteration-and-permutation:cat_basics",
       "meta": ["base_spiky"],
@@ -54,7 +55,7 @@
       "sections": [
         {
           "type": "string",
-          "content": "Crafting recipes, go!"
+          "content": "research.iteration-and-permutation.craft_it_all.stage.1"
         },
         {
           "type": "crafting",
@@ -95,13 +96,13 @@
         },
         {
           "type": "string",
-          "content": "And this is it, completed."
+          "content": "research.iteration-and-permutation.craft_it_all.stage.2"
         }
       ]
     },
     {
       "key": "iteration-and-permutation:magic_root",
-      "name": "Here be Magic",
+      "name": "research.iteration-and-permutation.magic_root",
       "icons": ["iteration-and-permutation:unnamed_book"],
       "category": "iteration-and-permutation:cat_basics",
       "parents": ["iteration-and-permutation:root"],
@@ -110,12 +111,12 @@
       "sections": [
         {
           "type": "string",
-          "content": "It's time to do some magic!",
+          "content": "research.iteration-and-permutation.magic_root.stage.1",
           "requirements": ["10*iteration-and-permutation::xp", "iteration-and-permutation:unnamed_book"]
         },
         {
           "type": "string",
-          "content": "*glasses fall*"
+          "content": "research.iteration-and-permutation.magic_root.stage.2"
         }
       ]
     },
@@ -130,18 +131,18 @@
       "sections": [
         {
           "type": "string",
-          "content": "Look at the bottom of the ocean... what do you see? Fish? Yep, fish. Good. \nVery\nGood.",
+          "content": "research.iteration-and-permutation.fish_root.stage.1",
           "requirements": ["minecraft:fishing_rod"]
         },
         {
           "type": "string",
-          "content": "fish. glub glub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub."
+          "content": "research.iteration-and-permutation.fish_root.stage.2"
         }
       ]
     },
     {
       "key": "iteration-and-permutation:back_together",
-      "name": "Back Together",
+      "name": "research.iteration-and-permutation.back_together",
       "icons": ["minecraft:gold_ingot", "minecraft:iron_ingot"],
       "category": "iteration-and-permutation:cat_basics",
       "parents": ["iteration-and-permutation:magic_root", "iteration-and-permutation:fish_root"],
@@ -151,18 +152,18 @@
       "sections": [
         {
           "type": "string",
-          "content": "done.",
+          "content": "research.iteration-and-permutation.back_together.stage.1",
           "requirements": ["minecraft:diamond", "255*minecraft:snowball"]
         },
         {
           "type": "string",
-          "content": "stop. please."
+          "content": "research.iteration-and-permutation.back_together.stage.2"
         }
       ]
     },
     {
       "key": "iteration-and-permutation:extension_1",
-      "name": "Extension A",
+      "name": "research.iteration-and-permutation.extension_1",
       "icons": ["minecraft:nether_brick", "minecraft:glowstone_dust", "minecraft:flint"],
       "category": "iteration-and-permutation:cat_basics",
       "parents": ["iteration-and-permutation:back_together"],
@@ -172,18 +173,18 @@
       "sections": [
         {
           "type": "string",
-          "content": "You've made it much further than you should have. It may be wise to stop here.",
+          "content": "research.iteration-and-permutation.extension_1.stage.1",
           "requirements": ["3*minecraft:nether_brick", "5*minecraft:glowstone_dust", "7*minecraft:flint"]
         },
         {
           "type": "string",
-          "content": "No? okie."
+          "content": "research.iteration-and-permutation.extension_1.stage.2"
         }
       ]
     },
     {
       "key": "iteration-and-permutation:extension_2",
-      "name": "Extension B",
+      "name": "research.iteration-and-permutation.extension_2",
       "icons": ["minecraft:painting"],
       "category": "iteration-and-permutation:cat_basics",
       "parents": ["iteration-and-permutation:magic_root"],
@@ -193,18 +194,18 @@
       "sections": [
         {
           "type": "string",
-          "content": "Art is an essential component to proper usage of magic.",
+          "content": "research.iteration-and-permutation.extension_2.stage.1",
           "requirements": ["2*minecraft:painting", "10*iteration-and-permutation::xp"]
         },
         {
           "type": "string",
-          "content": "Paint to your hearts content."
+          "content": "research.iteration-and-permutation.extension_2.stage.2"
         }
       ]
     },
     {
       "key": "iteration-and-permutation:overworld_info",
-      "name": "The Overworld",
+      "name": "research.iteration-and-permutation.overworld_info",
       "icons": ["minecraft:grass_block"],
       "category": "iteration-and-permutation:cat_planes",
       "meta": ["base_thin", "hidden"],
@@ -213,13 +214,13 @@
       "sections": [
         {
           "type": "string",
-          "content": "Where do you think you are?"
+          "content": "research.iteration-and-permutation.overworld_info.text"
         }
       ]
     },
     {
       "key": "iteration-and-permutation:nether_info",
-      "name": "The Nether",
+      "name": "research.iteration-and-permutation.nether_info",
       "icons": ["minecraft:netherrack"],
       "category": "iteration-and-permutation:cat_planes",
       "meta": ["base_thin", "hidden"],
@@ -228,13 +229,13 @@
       "sections": [
         {
           "type": "string",
-          "content": "Hell, basically."
+          "content": "research.iteration-and-permutation.nether_info.text"
         }
       ]
     },
     {
       "key": "iteration-and-permutation:end_info",
-      "name": "The End",
+      "name": "research.iteration-and-permutation.end_info",
       "icons": ["minecraft:end_stone"],
       "category": "iteration-and-permutation:cat_planes",
       "meta": ["base_thin", "hidden"],
@@ -243,7 +244,7 @@
       "sections": [
         {
           "type": "string",
-          "content": "Fly away!"
+          "content": "research.iteration-and-permutation.end_info.text"
         }
       ]
     }

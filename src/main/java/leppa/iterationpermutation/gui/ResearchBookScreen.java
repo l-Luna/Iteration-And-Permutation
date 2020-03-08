@@ -9,9 +9,11 @@ import leppa.iterationpermutation.research.ResearchPage;
 import leppa.iterationpermutation.research.ResearchTree;
 import leppa.iterationpermutation.research.Researcher;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.button.Button;
 import net.minecraft.client.renderer.RenderHelper;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
@@ -150,7 +152,7 @@ public class ResearchBookScreen extends Screen{
 			RenderStyle style = pageStyle(p);
 			if(style == RenderStyle.Complete || style == RenderStyle.In_Progress)
 				if(inBounds(p.x(), p.y()) && mouseUnderEntry(p.x(), p.y(), mouseX, mouseY)){
-					GuiUtils.drawHoveringText(p.desc() == null ? Collections.singletonList(p.name()) : Arrays.asList(p.name(), p.desc()), mouseX, mouseY, width, height, -1, getMinecraft().fontRenderer);
+					GuiUtils.drawHoveringText(p.desc() == null ? Collections.singletonList(I18n.format(p.name())) : Arrays.asList(I18n.format(p.name()), I18n.format(p.desc())), mouseX, mouseY, width, height, -1, getMinecraft().fontRenderer);
 					break;
 				}
 		}
@@ -454,7 +456,9 @@ public class ResearchBookScreen extends Screen{
 			}
 			if(isHovered() && name != null){
 				// render text
-				Minecraft.getInstance().fontRenderer.drawStringWithShadow(name, x - Minecraft.getInstance().fontRenderer.getStringWidth(name) - 7, y + 4, -1);
+				FontRenderer fr = Minecraft.getInstance().fontRenderer;
+				String text = I18n.format(name);
+				fr.drawStringWithShadow(text, x - fr.getStringWidth(text) - 5, y + 4, -1);
 			}
 		}
 	}

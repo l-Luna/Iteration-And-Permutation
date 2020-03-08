@@ -2,6 +2,7 @@ package leppa.iterationpermutation.research.impl;
 
 import leppa.iterationpermutation.research.PageSection;
 import leppa.iterationpermutation.research.Requirement;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.nbt.CompoundNBT;
 
 import java.util.ArrayList;
@@ -26,12 +27,16 @@ public class StringSection implements PageSection{
 		this.text = text;
 	}
 	
+	public String getTranslatedText(){
+		return I18n.format(text);
+	}
+	
 	public int span(){
-		return (int)Math.ceil(fr().listFormattedStringToWidth(text, pageWidth).size() / (double)linesPerPage);
+		return (int)Math.ceil(fr().listFormattedStringToWidth(getTranslatedText(), pageWidth).size() / (double)linesPerPage);
 	}
 	
 	public void render(boolean right, int pageIndex, int screenWidth, int screenHeight, int mouseX, int mouseY){
-		List<String> lines = fr().listFormattedStringToWidth(text, pageWidth);
+		List<String> lines = fr().listFormattedStringToWidth(getTranslatedText(), pageWidth);
 		lines = lines.subList(pageIndex * linesPerPage,
 							  Math.min((pageIndex + 1) * linesPerPage,
 									   lines.size()));

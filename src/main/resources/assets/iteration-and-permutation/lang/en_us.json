@@ -6,16 +6,39 @@
   "researchTree.iteration-and-permutation.cat_planes": "Planes",
 
   "research.iteration-and-permutation.craft_it_all": "Crafting Recipes (For Free!)",
+  "research.iteration-and-permutation.craft_it_all.stage.1": "Crafting recipes, go!",
+  "research.iteration-and-permutation.craft_it_all.stage.2": "And this is it, completed.",
 
   "research.iteration-and-permutation.root": "Root Entry",
+  "research.iteration-and-permutation.root.stage.1": "Wow, so this is knowledge!",
+  "research.iteration-and-permutation.root.stage.2": "And this is it, completed.",
 
   "research.iteration-and-permutation.fish_root": "Fishy Fishy",
+  "research.iteration-and-permutation.fish_root.stage.1": "Look at the bottom of the ocean... what do you see? Fish? Yep, fish. Good. \nVery\nGood.",
+  "research.iteration-and-permutation.fish_root.stage.2": "fish. glub glub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.\nglub.",
 
   "research.iteration-and-permutation.magic_root": "Here be Magic",
+  "research.iteration-and-permutation.magic_root.stage.1": "It's time to do some magic!",
+  "research.iteration-and-permutation.magic_root.stage.2": "*glasses fall*",
 
   "research.iteration-and-permutation.back_together": "Back Together",
+  "research.iteration-and-permutation.back_together.stage.1": "done.",
+  "research.iteration-and-permutation.back_together.stage.2": "stop. please.",
 
   "research.iteration-and-permutation.extension_1": "Extension A",
+  "research.iteration-and-permutation.extension_1.stage.1": "You've made it much further than you should have. It may be wise to stop here.",
+  "research.iteration-and-permutation.extension_1.stage.2": "No? Okie.",
 
-  "research.iteration-and-permutation.extension_2": "Extension B"
+  "research.iteration-and-permutation.extension_2": "Extension B",
+  "research.iteration-and-permutation.extension_2.stage.1": "Art is an essential component to proper usage of magic.",
+  "research.iteration-and-permutation.extension_2.stage.2": "Paint to your hearts content.",
+
+  "research.iteration-and-permutation.overworld_info": "The Overworld",
+  "research.iteration-and-permutation.overworld_info.text": "Where do you think you are?",
+
+  "research.iteration-and-permutation.nether_info": "The Nether",
+  "research.iteration-and-permutation.nether_info.text": "...when none can call our power into account? Yet who would have thought the old man would have had so much blood in him?",
+
+  "research.iteration-and-permutation.end_info": "The End",
+  "research.iteration-and-permutation.end_info.text": "Fly away!"
 }
