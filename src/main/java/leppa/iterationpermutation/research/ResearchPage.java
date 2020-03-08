@@ -51,20 +51,22 @@ public abstract class ResearchPage{
 		nbt.put("sections", nbtListOfNbt(sections().stream().map(PageSection::getPassData).collect(Collectors.toList())));
 		nbt.putInt("x", x());
 		nbt.putInt("y", y());
+		if(desc() != null)
+			nbt.putString("desc", desc());
 		return nbt;
 	}
 	
 	public static ClientResearchPage fromNBT(CompoundNBT nbt){
-		ClientResearchPage page = new ClientResearchPage(nbt.getString("id"),
-														 nbt.getString("name"),
-														 nbt.getList("icons", 8).stream().map(StringNBT.class::cast).map(StringNBT::getString).collect(Collectors.toList()),
-														 nbt.getList("meta", 8).stream().map(StringNBT.class::cast).map(StringNBT::getString).collect(Collectors.toList()),
-														 nbt.getList("sections", 10).stream().map(CompoundNBT.class::cast).map(PageSection::fromNBT).collect(Collectors.toList()),
-														 nbt.getInt("x"),
-														 nbt.getInt("y"),
-														 nbt.getString("tree_key"),
-														 nbt.getList("parents", 8).stream().map(StringNBT.class::cast).map(StringNBT::getString).collect(Collectors.toList()));
-		return page;
+		return new ClientResearchPage(nbt.getString("id"),
+									  nbt.getString("name"),
+									  nbt.getString("desc"),
+									  nbt.getList("icons", 8).stream().map(StringNBT.class::cast).map(StringNBT::getString).collect(Collectors.toList()),
+									  nbt.getList("meta", 8).stream().map(StringNBT.class::cast).map(StringNBT::getString).collect(Collectors.toList()),
+									  nbt.getList("sections", 10).stream().map(CompoundNBT.class::cast).map(PageSection::fromNBT).collect(Collectors.toList()),
+									  nbt.getInt("x"),
+									  nbt.getInt("y"),
+									  nbt.getString("tree_key"),
+									  nbt.getList("parents", 8).stream().map(StringNBT.class::cast).map(StringNBT::getString).collect(Collectors.toList()));
 	}
 	
 	public static INBT nbtList(List<String> data){

@@ -151,7 +151,8 @@ public class ResearchBookScreen extends Screen{
 			RenderStyle style = pageStyle(p);
 			if(style == RenderStyle.Complete || style == RenderStyle.In_Progress)
 				if(inBounds(p.x(), p.y()) && mouseUnderEntry(p.x(), p.y(), mouseX, mouseY)){
-					GuiUtils.drawHoveringText(p.desc() == null ? Collections.singletonList(I18n.format(p.name())) : Arrays.asList(I18n.format(p.name()), I18n.format(p.desc())), mouseX, mouseY, width, height, -1, getMinecraft().fontRenderer);
+					// TODO: replace §7 with proper formatting
+					GuiUtils.drawHoveringText(p.desc() == null || p.desc().equals("") ? Collections.singletonList(I18n.format(p.name())) : Arrays.asList(I18n.format(p.name()), "§7" + I18n.format(p.desc())), mouseX, mouseY, width, height, -1, getMinecraft().fontRenderer);
 					break;
 				}
 		}

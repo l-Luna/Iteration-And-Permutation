@@ -10,8 +10,7 @@ import java.util.stream.Collectors;
 
 public class ClientResearchPage extends ResearchPage{
 	
-	String id;
-	String name;
+	String id, name, desc;
 	List<String> icons;
 	List<String> meta;
 	List<PageSection> sections;
@@ -24,9 +23,10 @@ public class ClientResearchPage extends ResearchPage{
 	ResearchTree tree;
 	List<ResearchPage> parents;
 	
-	public ClientResearchPage(String id, String name, List<String> icons, List<String> meta, List<PageSection> sections, int x, int y, String treeId, List<String> parentsId){
+	public ClientResearchPage(String id, String name, String desc, List<String> icons, List<String> meta, List<PageSection> sections, int x, int y, String treeId, List<String> parentsId){
 		this.id = id;
 		this.name = name;
+		this.desc = desc;
 		this.icons = icons;
 		this.meta = meta;
 		this.sections = sections;
@@ -79,5 +79,9 @@ public class ClientResearchPage extends ResearchPage{
 	
 	public int y(){
 		return y;
+	}
+	
+	public String desc(){
+		return desc;
 	}
 }

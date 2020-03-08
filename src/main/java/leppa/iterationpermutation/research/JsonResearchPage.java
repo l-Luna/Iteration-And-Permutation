@@ -4,7 +4,7 @@ import java.util.List;
 
 public class JsonResearchPage extends ResearchPage{
 	
-	String id, name;
+	String id, name, desc;
 	List<String> icons, meta;
 	List<ResearchPage> parents;
 	List<PageSection> sections;
@@ -57,5 +57,9 @@ public class JsonResearchPage extends ResearchPage{
 	
 	public int y(){
 		return y;
+	}
+	
+	public String desc(){
+		return desc;
 	}
 }

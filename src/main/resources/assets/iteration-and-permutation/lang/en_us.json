@@ -6,10 +6,12 @@
   "researchTree.iteration-and-permutation.cat_planes": "Planes",
 
   "research.iteration-and-permutation.craft_it_all": "Crafting Recipes (For Free!)",
+  "research.iteration-and-permutation.craft_it_all.desc": "Testing out recipes",
   "research.iteration-and-permutation.craft_it_all.stage.1": "Crafting recipes, go!",
   "research.iteration-and-permutation.craft_it_all.stage.2": "And this is it, completed.",
 
   "research.iteration-and-permutation.root": "Root Entry",
+  "research.iteration-and-permutation.root.desc": "The beginning",
   "research.iteration-and-permutation.root.stage.1": "Wow, so this is knowledge!",
   "research.iteration-and-permutation.root.stage.2": "And this is it, completed.",
 

@@ -26,6 +26,7 @@
     {
       "key": "iteration-and-permutation:root",
       "name": "research.iteration-and-permutation.root",
+      "desc": "research.iteration-and-permutation.root.desc",
       "icons": ["minecraft:book"],
       "category": "iteration-and-permutation:cat_basics",
       "parents": [],
@@ -47,6 +48,7 @@
     {
       "key": "iteration-and-permutation:craft_it_all",
       "name": "research.iteration-and-permutation.craft_it_all",
+      "desc": "research.iteration-and-permutation.craft_it_all.desc",
       "icons": ["minecraft:knowledge_book"],
       "category": "iteration-and-permutation:cat_basics",
       "meta": ["base_spiky"],

@@ -85,7 +85,7 @@ public final class JsonResearchManager extends JsonReloadListener{
 					System.err.println("Non-Json-object in entries array, in " + rl + ".");
 				else{
 					JsonObject object = item.getAsJsonObject();
-					ResearchPage page = new JsonResearchPage(
+					JsonResearchPage page = new JsonResearchPage(
 							getString(object, "key"),
 							getString(object, "name"),
 							stream(getJsonArray(object, "icons"))
@@ -104,6 +104,8 @@ public final class JsonResearchManager extends JsonReloadListener{
 							getInt(object, "y"),
 							Knowledges.treeForId(getString(object, "category")).orElse(null)
 					);
+					if(object.has("desc"))
+						page.desc = getString(object, "desc");
 					page.tree().getPages().add(page);
 				}
 			});
