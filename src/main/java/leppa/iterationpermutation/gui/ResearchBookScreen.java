@@ -19,6 +19,7 @@ import net.minecraft.util.text.StringTextComponent;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.fml.client.config.GuiUtils;
+import org.lwjgl.opengl.GL11;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -69,10 +70,18 @@ public class ResearchBookScreen extends Screen{
 		
 		// background -> nebula_bg
 		renderBg();
+		
+		// enable scissors - only render within ((width - 256) / 2, (height - 256) / 2)), ((width - 256) / 2 + 256, (height - 256) / 2 + 256)
+		double scale = getMinecraft().mainWindow.getGuiScaleFactor();
+		GL11.glScissor((int)(scale * ((width - 256) / 2)), (int)(scale * ((height - 256) / 2)), (int)(256 * scale), (int)(256 * scale));
+		GL11.glEnable(GL11.GL_SCISSOR_TEST);
 		// page sfx -> later
 		// pages and arrows
 		renderKnowledge();
 		renderKnowledgeArrows();
+		//disable scissors
+		GL11.glDisable(GL11.GL_SCISSOR_TEST);
+		
 		// tabs are just buttons
 		// frame
 		renderFrame();
@@ -414,8 +423,7 @@ public class ResearchBookScreen extends Screen{
 	private boolean inBounds(int gx, int gy, int insets){
 		int x = (int)((30 * gx + xOffset()) * zoom);
 		int y = (int)((30 * gy + yOffset()) * zoom);
-		int size = 30 - insets * 2;
-		return x + insets + 9 > (width - 256) / 2 && y + insets + 9 > (height - 256) / 2 && x + insets + size < (width - 256) / 2 + 256 && y + insets + size < (height - 256) / 2 + 256;
+		return x > 0 && y > 0 && x < width && y < height;
 	}
 	
 	public boolean isPauseScreen(){
