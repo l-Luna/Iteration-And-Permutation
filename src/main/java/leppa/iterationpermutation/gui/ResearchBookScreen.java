@@ -83,8 +83,6 @@ public class ResearchBookScreen extends Screen{
 		GL11.glDisable(GL11.GL_SCISSOR_TEST);
 		
 		// tabs are just buttons
-		// frame
-		renderFrame();
 		// tooltips
 		renderKnowledgeTooltip(mouseX, mouseY);
 		// tabs sfx??
@@ -120,7 +118,7 @@ public class ResearchBookScreen extends Screen{
 		getMinecraft().getTextureManager().bindTexture(bases);
 		
 		for(ResearchPage researchPage : curPages()){
-			if(inBounds(researchPage.x(), researchPage.y(), 0)){
+			if(inBounds(researchPage.x(), researchPage.y())){
 				int base = getBase(researchPage);
 				blit((int)((30 * researchPage.x() + xOffset()) * zoom),
 					 (int)((30 * researchPage.y() + yOffset()) * zoom),
@@ -134,7 +132,7 @@ public class ResearchBookScreen extends Screen{
 		// icons
 		RenderHelper.disableStandardItemLighting();
 		for(ResearchPage p : curPages())
-			if(inBounds(p.x(), p.y(), 7) && pageStyle(p) != RenderStyle.None){
+			if(inBounds(p.x(), p.y()) && pageStyle(p) != RenderStyle.None){
 				/*if(pageStyle(p) == RenderStyle.Pending)
 					GlStateManager.color4f(.5f, .5f, .5f, 1f);*/ //cant modify how items look like, its overridden for me :)
 				itemRenderer.zLevel = -150 + borderZ / 2f;
@@ -151,7 +149,7 @@ public class ResearchBookScreen extends Screen{
 		for(ResearchPage p : curPages()){
 			RenderStyle style = pageStyle(p);
 			if(style == RenderStyle.Complete || style == RenderStyle.In_Progress)
-				if(inBounds(p.x(), p.y(), 6) && mouseUnderEntry(p.x(), p.y(), mouseX, mouseY)){
+				if(inBounds(p.x(), p.y()) && mouseUnderEntry(p.x(), p.y(), mouseX, mouseY)){
 					GuiUtils.drawHoveringText(p.desc() == null ? Collections.singletonList(p.name()) : Arrays.asList(p.name(), p.desc()), mouseX, mouseY, width, height, -1, getMinecraft().fontRenderer);
 					break;
 				}
@@ -258,72 +256,65 @@ public class ResearchBookScreen extends Screen{
 	private void renderVerticalLine(int x, int pY, int parentY){
 		if(pY > parentY)
 			for(int i = parentY + 1; i < pY; i++){
-				if(inBounds(x, i, 0))
+				if(inBounds(x, i))
 					blit((int)(x * 30 - 5 + xOffset()), (int)(i * 30 - 5 + yOffset()), 0, 0, 35, 35);
 			}
 		else
 			for(int i = pY + 1; i < parentY; i++)
-				if(inBounds(x, i, 0))
+				if(inBounds(x, i))
 					blit((int)(x * 30 - 5 + xOffset()), (int)(i * 30 - 5 + yOffset()), 0, 0, 35, 35);
 	}
 	
 	private void renderHorizontalLine(int y, int pX, int parentX){
 		if(pX > parentX)
 			for(int i = parentX + 1; i < pX; i++){
-				if(inBounds(i, y, 0))
+				if(inBounds(i, y))
 					blit((int)(i * 30 - 5 + xOffset()), (int)(y * 30 - 5 + yOffset()), 0, 35, 35, 35);
 			}
 		else
 			for(int i = pX + 1; i < parentX; i++)
-				if(inBounds(i, y, 0))
+				if(inBounds(i, y))
 					blit((int)(i * 30 - 5 + xOffset()), (int)(y * 30 - 5 + yOffset()), 0, 35, 35, 35);
 	}
 	
 	private void drawUlCurve(int gX, int gY){
-		if(inBounds(gX, gY, 0))
+		if(inBounds(gX, gY))
 			blit((int)(gX * 30 - 5 + xOffset()), (int)(gY * 30 - 5 + yOffset()), 35, 70, 35, 35);
 	}
 	
 	private void drawUrCurve(int gX, int gY){
-		if(inBounds(gX, gY, 0))
+		if(inBounds(gX, gY))
 			blit((int)(gX * 30 - 5 + xOffset()), (int)(gY * 30 - 5 + yOffset()), 35, 105, 35, 35);
 	}
 	
 	private void drawBlCurve(int gX, int gY){
-		if(inBounds(gX, gY, 0))
+		if(inBounds(gX, gY))
 			blit((int)(gX * 30 - 5 + xOffset()), (int)(gY * 30 - 5 + yOffset()), 35, 35, 35, 35);
 	}
 	
 	private void drawBrCurve(int gX, int gY){
-		if(inBounds(gX, gY, 0))
+		if(inBounds(gX, gY))
 			blit((int)(gX * 30 - 5 + xOffset()), (int)(gY * 30 - 5 + yOffset()), 35, 0, 35, 35);
 	}
 	
 	private void drawLbrCurve(int gX, int gY){
-		if(inBounds(gX, gY, 0)) // TODO: split into parts and bounds check for each bc I don't want to stencil
+		if(inBounds(gX, gY)) // TODO: split into parts and bounds check for each bc I don't want to stencil
 			blit((int)(gX * 30 - 5 + xOffset()), (int)(gY * 30 - 5 + yOffset()), 70, 0, 65, 65);
 	}
 	
 	private void drawLblCurve(int gX, int gY){
-		if(inBounds(gX, gY, 0))
+		if(inBounds(gX, gY))
 			blit((int)(gX * 30 - 5 + xOffset()), (int)(gY * 30 - 5 + yOffset()), 70, 70, 65, 65);
 	}
 	
 	private void drawLulCurve(int gX, int gY){
-		if(inBounds(gX, gY, 0))
+		if(inBounds(gX, gY))
 			blit((int)(gX * 30 - 5 + xOffset()), (int)(gY * 30 - 5 + yOffset()), 70, 105, 65, 65);
 	}
 	
 	private void drawLurCurve(int gX, int gY){
-		if(inBounds(gX, gY, 0))
+		if(inBounds(gX, gY))
 			blit((int)(gX * 30 - 5 + xOffset()), (int)(gY * 30 - 5 + yOffset()), 135, 0, 65, 65);
-	}
-	
-	private void renderFrame(){
-		RenderHelper.disableStandardItemLighting();
-		GlStateManager.disableLighting();
-		final int borderSize = 25;
-		GuiUtils.drawContinuousTexturedBox(arrows, (width - 256) / 2 - borderSize / 2, (height - 256) / 2 - borderSize / 2, 256 - borderSize * 3, 256 - borderSize * 3, 256 + borderSize / 2, 256 + borderSize / 2, borderSize * 3, borderSize * 3, borderSize, blitOffset + borderZ);
 	}
 	
 	private int getBase(ResearchPage page){
@@ -402,7 +393,7 @@ public class ResearchBookScreen extends Screen{
 		// if present, open ResearchPageScreen w/ it
 		if(button == 0){
 			for(ResearchPage p : curPages())
-				if(inBounds(p.x(), p.y(), 0) && mouseUnderEntry(p.x(), p.y(), (float)mouseX, (float)mouseY)){
+				if(inBounds(p.x(), p.y()) && mouseUnderEntry(p.x(), p.y(), (float)mouseX, (float)mouseY)){
 					RenderStyle style = pageStyle(p);
 					if(style == RenderStyle.Complete || style == RenderStyle.In_Progress){
 						getMinecraft().displayGuiScreen(new ResearchPageScreen(p, player));
@@ -411,7 +402,7 @@ public class ResearchBookScreen extends Screen{
 				}
 		}else if(button == 2)
 			for(ResearchPage p : curPages())
-				if(inBounds(p.x(), p.y(), 0) && mouseUnderEntry(p.x(), p.y(), (float)mouseX, (float)mouseY)){
+				if(inBounds(p.x(), p.y()) && mouseUnderEntry(p.x(), p.y(), (float)mouseX, (float)mouseY)){
 					// The server checks if the page is visible
 					PermutationNetwork.INSTANCE.sendToServer(new PktTryAdvanceResearch(p.id()));
 					break;
@@ -420,10 +411,10 @@ public class ResearchBookScreen extends Screen{
 		return true;
 	}
 	
-	private boolean inBounds(int gx, int gy, int insets){
+	private boolean inBounds(int gx, int gy){
 		int x = (int)((30 * gx + xOffset()) * zoom);
 		int y = (int)((30 * gy + yOffset()) * zoom);
-		return x > 0 && y > 0 && x < width && y < height;
+		return x > 0 && y > -20 && x < width && y < height;
 	}
 	
 	public boolean isPauseScreen(){
@@ -463,7 +454,7 @@ public class ResearchBookScreen extends Screen{
 			}
 			if(isHovered() && name != null){
 				// render text
-				Minecraft.getInstance().fontRenderer.drawStringWithShadow(name, x - Minecraft.getInstance().fontRenderer.getStringWidth(name) - 10, y + 4, -1);
+				Minecraft.getInstance().fontRenderer.drawStringWithShadow(name, x - Minecraft.getInstance().fontRenderer.getStringWidth(name) - 7, y + 4, -1);
 			}
 		}
 	}
