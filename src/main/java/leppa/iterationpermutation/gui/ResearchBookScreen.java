@@ -373,7 +373,9 @@ public class ResearchBookScreen extends Screen{
 	}
 	
 	private boolean mouseUnderEntry(int gridX, int gridY, float mouseX, float mouseY){
-		return mouseX >= (gridX * 30 + xOffset()) && mouseX <= (gridX * 30 + xOffset() + 25) && mouseY >= (gridY * 30 + yOffset()) && mouseY <= (gridY * 30 + yOffset() + 25);
+		// enable scissors - only render within ((width - 256) / 2, (height - 256) / 2)), ((width - 256) / 2 + 256, (height - 256) / 2 + 256)
+		return /*if its under the entry*/ mouseX >= (gridX * 30 + xOffset()) && mouseX <= (gridX * 30 + xOffset() + 25) && mouseY >= (gridY * 30 + yOffset()) && mouseY <= (gridY * 30 + yOffset() + 25)
+				&& /*if its within the actual displayed area*/ mouseX >= (width - 256) / 2f && mouseX <= (width - 256) / 2f + 256 && mouseY >= (height - 256) / 2f && mouseY <= (height - 256) / 2f + 256;
 	}
 	
 	public boolean mouseDragged(double mouseX, double mouseY, int mouseButton, double dragX, double dragY){
