@@ -1,7 +1,6 @@
 package leppa.iterationpermutation.research.impl;
 
 import leppa.iterationpermutation.research.PageSection;
-import leppa.iterationpermutation.research.PageSection;
 import leppa.iterationpermutation.research.Requirement;
 import net.minecraft.nbt.CompoundNBT;
 
@@ -34,7 +33,7 @@ public class VanillaCraftingSection implements PageSection{
 		float x = (screenWidth / 2f - 128f) + (right ? 125 : 1); // slightly further left on the right page
 		float y = (screenHeight / 2f - 128f) + 1;
 		// just defer
-		ClientVanillaCrafting.renderRecipe((int)x, (int)y, craftingLocation, mouseX, mouseY, screenWidth, screenHeight);
+		ClientVanillaCrafting.renderRecipe((int)x, (int)y, craftingLocation);
 	}
 	
 	public void renderAfter(boolean right, int pageIndex, int screenWidth, int screenHeight, int mouseX, int mouseY){

@@ -403,6 +403,7 @@ public class ResearchBookScreen extends Screen{
 		}else if(button == 2)
 			for(ResearchPage p : curPages())
 				if(inBounds(p.x(), p.y(), 0) && mouseUnderEntry(p.x(), p.y(), (float)mouseX, (float)mouseY)){
+					// The server checks if the page is visible
 					PermutationNetwork.INSTANCE.sendToServer(new PktTryAdvanceResearch(p.id()));
 					break;
 				}

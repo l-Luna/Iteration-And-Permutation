@@ -100,14 +100,27 @@ public interface Researcher{
 		return p.getCapability(ResearchCapability.PROVIDER_CAPABILITY, null).orElseThrow(IllegalStateException::new);
 	}
 	
+	static boolean isPageVisible(PlayerEntity player, ResearchPage page){
+		Researcher researcher = getFrom(player);
+		if(researcher.stage(page) >= page.sections().size())
+			return true;
+		// TODO: addenda
+		if(researcher.stage(page) > 0)
+			return true;
+		if(page.parents().size() == 0)
+			return !page.meta().contains("hidden");
+		else
+			return page.parents().stream().allMatch(x -> isPageVisible(player, x));
+	}
+	
 	static boolean canAdvance(PlayerEntity player, ResearchPage page){
-		Researcher researcher = Researcher.getFrom(player);
-		return page.sections().get(researcher.stage(page)).getRequirements().stream().allMatch(x -> x.satisfiedBy(player));
+		Researcher researcher = getFrom(player);
+		return isPageVisible(player, page) && page.sections().get(researcher.stage(page)).getRequirements().stream().allMatch(x -> x.satisfiedBy(player));
 	}
 	
 	static void advanceAndTake(PlayerEntity player, ResearchPage page){
 		if(canAdvance(player, page)){
-			Researcher researcher = Researcher.getFrom(player);
+			Researcher researcher = getFrom(player);
 			page.sections().get(researcher.stage(page)).getRequirements().forEach(x -> x.take(player));
 			researcher.advance(page);
 		}

@@ -27,12 +27,12 @@ public final class ClientVanillaCrafting{
 	public static ResourceLocation CRAFTING_OVERLAY = new ResourceLocation(PermutationMod.MODID, "textures/gui/vanilla_crafting_overlay.png");
 	public static ResourceLocation SMELTING_OVERLAY = new ResourceLocation(PermutationMod.MODID, "textures/gui/vanilla_smelting_overlay.png");
 	
-	public static void renderRecipe(int x, int y, String recipe, int mouseX, int mouseY, int screenWidth, int screenHeight){
+	public static void renderRecipe(int x, int y, String recipe){
 		IRecipe<?> iRecipe = getRecipe(new ResourceLocation(recipe));
 		if(iRecipe instanceof ICraftingRecipe)
-			renderCraftingRecipe(x, y, mouseX, mouseY, screenWidth, screenHeight, (ICraftingRecipe)iRecipe);
+			renderCraftingRecipe(x, y, (ICraftingRecipe)iRecipe);
 		else if(iRecipe instanceof AbstractCookingRecipe)
-			renderCookingRecipe(x, y, mouseX, mouseY, screenWidth, screenHeight, (AbstractCookingRecipe)iRecipe);
+			renderCookingRecipe(x, y, (AbstractCookingRecipe)iRecipe);
 	}
 	
 	public static void renderRecipeTooltips(int x, int y, String recipe, int mouseX, int mouseY, int screenWidth, int screenHeight){
@@ -43,7 +43,7 @@ public final class ClientVanillaCrafting{
 			renderCookingRecipeTooltips(x, y, mouseX, mouseY, screenWidth, screenHeight, (AbstractCookingRecipe)iRecipe);
 	}
 	
-	public static void renderCraftingRecipe(int x, int y, int mouseX, int mouseY, int screenWidth, int screenHeight, ICraftingRecipe recipe){
+	public static void renderCraftingRecipe(int x, int y, ICraftingRecipe recipe){
 		// background
 		Minecraft.getInstance().getTextureManager().bindTexture(CRAFTING_OVERLAY);
 		GlStateManager.color4f(1f, 1f, 1f, 1f);
@@ -53,7 +53,7 @@ public final class ClientVanillaCrafting{
 		// (x, y) is top-left of whole thing
 		// first item is (40, 21)
 		// each item is +18 x/y
-		for(int xx = 0; xx < 3; xx++){
+		for(int xx = 0; xx < 3; xx++)
 			for(int yy = 0; yy < 3; yy++){
 				int index = xx + yy * 3;
 				if(index < recipe.getIngredients().size()){
@@ -66,7 +66,6 @@ public final class ClientVanillaCrafting{
 					}
 				}
 			}
-		}
 		// 57, 137 is the result's location
 		RenderHelper.enableStandardItemLighting();
 		mc().getItemRenderer().renderItemAndEffectIntoGUI(recipe.getRecipeOutput(), x + 57, y + 137);
@@ -103,14 +102,13 @@ public final class ClientVanillaCrafting{
 			GuiUtils.drawHoveringText(getTooltipFromItem(recipe.getRecipeOutput()), mouseX, mouseY, screenWidth, screenHeight, -1, mc().fontRenderer);
 		}
 		// if mouse is over (57, 91) and (73, 114), its over the arrow
-		else if(mouseX >= x + 57 && mouseX <= 74 + x     &&     mouseY >= y + 91 && mouseY <= y + 114){
+		else if(mouseX >= x + 57 && mouseX <= 74 + x     &&     mouseY >= y + 91 && mouseY <= y + 114)
 			GuiUtils.drawHoveringText(Lists.newArrayList(I18n.format(recipe.getIcon().getTranslationKey())), mouseX, mouseY, screenWidth, screenHeight, -1, mc().fontRenderer);
-		}
 		
 		RenderHelper.enableStandardItemLighting();
 	}
 	
-	public static void renderCookingRecipe(int x, int y, int mouseX, int mouseY, int screenWidth, int screenHeight, AbstractCookingRecipe recipe){
+	public static void renderCookingRecipe(int x, int y, AbstractCookingRecipe recipe){
 		// background
 		Minecraft.getInstance().getTextureManager().bindTexture(SMELTING_OVERLAY);
 		GlStateManager.color4f(1f, 1f, 1f, 1f);
@@ -143,9 +141,8 @@ public final class ClientVanillaCrafting{
 			GuiUtils.drawHoveringText(getTooltipFromItem(recipe.getRecipeOutput()), mouseX, mouseY, screenWidth, screenHeight, -1, mc().fontRenderer);
 		}
 		// if mouse is over (47, 78) and (82, 101), its over the arrow
-		else if(mouseX >= x + 47 && mouseX <= 78 + x     &&     mouseY >= y + 82 && mouseY <= y + 101){
+		else if(mouseX >= x + 47 && mouseX <= 78 + x     &&     mouseY >= y + 82 && mouseY <= y + 101)
 			GuiUtils.drawHoveringText(Lists.newArrayList(I18n.format(recipe.getIcon().getTranslationKey())), mouseX, mouseY, screenWidth, screenHeight, -1, mc().fontRenderer);
-		}
 		RenderHelper.enableStandardItemLighting();
 	}
 	
