@@ -25,4 +25,8 @@ public class ResearchBook extends Item{
 		DistExecutor.runWhenOn(Dist.CLIENT, () -> () -> PermutationMod.proxy.openResearchScreen(knowledge, player));
 		return new ActionResult<>(ActionResultType.SUCCESS, player.getHeldItem(hand));
 	}
+	
+	public int getItemStackLimit(ItemStack stack){
+		return 1;
+	}
 }
