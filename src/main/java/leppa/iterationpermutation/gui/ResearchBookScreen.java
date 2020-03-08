@@ -33,8 +33,6 @@ import static java.lang.Math.min;
 @OnlyIn(Dist.CLIENT)
 public class ResearchBookScreen extends Screen{
 	
-	// TODO: make more generic
-	private static final ResourceLocation nebula_bg = new ResourceLocation(PermutationMod.MODID, "textures/gui/nebula_bg.png");
 	private static final ResourceLocation bases = new ResourceLocation(PermutationMod.MODID, "textures/gui/research_bases.png");
 	private static final ResourceLocation arrows = new ResourceLocation(PermutationMod.MODID, "textures/gui/research_arrows.png");
 	
@@ -110,7 +108,8 @@ public class ResearchBookScreen extends Screen{
 	
 	private void renderBg(){
 		GlStateManager.color4f(1.0f, 1.0f, 1.0f, 1.0f);
-		getMinecraft().getTextureManager().bindTexture(nebula_bg);
+		ResourceLocation base_bg = knowledge.getTrees().get(curTab).getBackground();
+		getMinecraft().getTextureManager().bindTexture(new ResourceLocation(base_bg.getNamespace(), "textures/" + base_bg.getPath()));
 		blit((width - 256) / 2, (height - 256) / 2, blitOffset, -(xPan / 2f) % 512, -(yPan / 2f) % 512, 256, 256, 512, 512);
 	}
 	

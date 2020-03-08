@@ -18,7 +18,7 @@
       "key": "iteration-and-permutation:cat_planes",
       "in": "iteration-and-permutation:arcana",
       "icon": "iteration-and-permutation:item/book_of_planes.png",
-      "background": "iteration-and-permutation:gui/nebula_bg.png",
+      "background": "iteration-and-permutation:gui/dark_bg.png",
       "name": "researchTree.iteration-and-permutation.cat_planes"
     }
   ],

@@ -15,6 +15,7 @@ public class ResearchTree{
 	String key;
 	String name;
 	ResourceLocation icon;
+	ResourceLocation background;
 	
 	public List<ResearchPage> getPages(){
 		return pages;
@@ -31,7 +32,8 @@ public class ResearchTree{
 		CompoundNBT nbt = new CompoundNBT();
 		nbt.putString("key", key);
 		nbt.putString("name", name);
-		nbt.putString("icon", icon.getNamespace() + ":" + icon.getPath());
+		nbt.putString("icon", icon.toString());
+		nbt.putString("background", background.toString());
 		nbt.put("pages", ResearchPage.nbtListOfNbt(pages.stream().map(ResearchPage::getData).collect(Collectors.toList())));
 		return nbt;
 	}
@@ -43,6 +45,7 @@ public class ResearchTree{
 		tree.name = nbt.getString("name");
 		tree.key = nbt.getString("key");
 		tree.icon = new ResourceLocation(nbt.getString("icon"));
+		tree.background = new ResourceLocation(nbt.getString("background"));
 		return tree;
 	}
 	
@@ -56,5 +59,9 @@ public class ResearchTree{
 	
 	public String key(){
 		return key;
+	}
+	
+	public ResourceLocation getBackground(){
+		return background;
 	}
 }

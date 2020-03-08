@@ -66,8 +66,11 @@ public final class JsonResearchManager extends JsonReloadListener{
 					tree.key = getString(object, "key");
 					Knowledges.getKnowledge(getString(object, "in")).getTrees().add(tree);
 					
+					// TODO: placeholders and defaults
 					if(object.has("icon"))
 						tree.icon = new ResourceLocation(getString(object, "icon"));
+					if(object.has("background"))
+						tree.background = new ResourceLocation(getString(object, "background"));
 					if(object.has("name"))
 						tree.name = getString(object, "name");
 				}
